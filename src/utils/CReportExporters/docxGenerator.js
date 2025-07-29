@@ -900,19 +900,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A3~D3: 采样地址
                             createFormattedCell1('采样地址', 'Sample Address'),
-                            new TableCell({
-                                columnSpan: 3,
-                                verticalAlign: VerticalAlign.CENTER,
-                                children: [new Paragraph({
-                                    children: [
-                                        new TextRun({
-                                            text: data.samplingAddress,
-                                            font: '宋体',
-                                            size: 21,
-                                        })
-                                    ]
-                                })]
-                            })
+                            createFormattedCell0(data.samplingAddress, false, 3, AlignmentType.LEFT)
                         ]
                     }),
 
@@ -922,19 +910,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A4~D4: 检测地点
                             createFormattedCell1('检测地点', 'Testing Address'),
-                            new TableCell({
-                                columnSpan: 3,
-                                verticalAlign: VerticalAlign.CENTER,
-                                children: [new Paragraph({
-                                    children: [
-                                        new TextRun({
-                                            text: data.testingAddress,
-                                            font: '宋体',
-                                            size: 21,
-                                        })
-                                    ]
-                                })]
-                            })
+                            createFormattedCell0(data.testingAddress, false, 3, AlignmentType.LEFT)
                         ]
                     }),
 
@@ -944,11 +920,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A5~D5: 采样方法
                             createFormattedCell1('采样方法', 'Sample Standard'),
-                            new TableCell({
-                                columnSpan: 3,
-                                verticalAlign: VerticalAlign.CENTER,
-                                children: [new Paragraph('')]
-                            })
+                            createFormattedCell0('', false, 3)
                         ]
                     }),
 
@@ -958,11 +930,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A6~D6: 评价标准
                             createFormattedCell1('评价标准', 'Evaluation Standard'),
-                            new TableCell({
-                                columnSpan: 3,
-                                verticalAlign: VerticalAlign.CENTER,
-                                children: [new Paragraph('')]
-                            })
+                            createFormattedCell0('', false, 3)
                         ]
                     }),
 
@@ -972,11 +940,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A7~B7: 备注
                             createFormattedCell1('备注', 'Note'),
-                            new TableCell({
-                                columnSpan: 3,
-                                verticalAlign: VerticalAlign.CENTER,
-                                children: [new Paragraph('')]
-                            })
+                            createFormattedCell0('', false, 3)
                         ]
                     })
                 ]
