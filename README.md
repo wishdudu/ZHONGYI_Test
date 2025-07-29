@@ -38,6 +38,12 @@ src/
 - Vitest单元测试
 - Cypress端到端测试
 
+## 系统架构
+
+<div align="center" style="margin-top:20px;margin-bottom:20px;">
+<img src="src/assets/structure.jpg" width="1000"/>
+</div>
+
 ## 核心依赖
 
 - `docx`: Word文档生成
