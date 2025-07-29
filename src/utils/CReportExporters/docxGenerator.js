@@ -940,7 +940,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A7~B7: 备注
                             createFormattedCell1('备注', 'Note'),
-                            createFormattedCell0('', false, 3)
+                            createFormattedCell0('', false, 3, AlignmentType.LEFT)
                         ]
                     })
                 ]
