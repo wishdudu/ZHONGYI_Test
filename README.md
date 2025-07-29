@@ -10,6 +10,10 @@
 - OCR文字识别功能
 - 基于Element Plus的UI界面
 
+## 演示视频
+
+[![Bilibili演示](https://i0.hdslb.com/bfs/archive/8267ecd45b3cdbe543a18d91b92a62e76c5f1f4d.jpg)](https://www.bilibili.com/video/BV1Aj8DzzEHd/)
+
 ## 项目结构
 
 ```
