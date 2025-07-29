@@ -920,7 +920,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A5~D5: 采样方法
                             createFormattedCell1('采样方法', 'Sample Standard'),
-                            createFormattedCell0('', false, 3)
+                            createFormattedCell0('', false, 3, AlignmentType.LEFT)
                         ]
                     }),
 
@@ -930,7 +930,7 @@ export async function generateDocxDocument(data) {
                         children: [
                             // A6~D6: 评价标准
                             createFormattedCell1('评价标准', 'Evaluation Standard'),
-                            createFormattedCell0('', false, 3)
+                            createFormattedCell0('', false, 3, AlignmentType.LEFT)
                         ]
                     }),
 
