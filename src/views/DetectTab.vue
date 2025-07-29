@@ -97,7 +97,6 @@ import { ElMessage } from 'element-plus'
 import ExcelUploadHandler from '../components/UploadHandlers/ExcelUploadHandler.vue'
 import WordUploadHandler from '../components/UploadHandlers/WordUploadHandler.vue'
 import ExportToExcel from '../components/BReportExporters/ExportToExcel.vue'
-import ExportToWord from './ExportToWord.vue'
 import { getBaiduAccessToken, recognizeImageByBaiduOCR } from '../api/baiduOcr'
 import { sendToModel } from '../api/backend'
   
