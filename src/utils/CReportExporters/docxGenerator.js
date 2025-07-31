@@ -1010,8 +1010,10 @@ export async function generateDocxDocument(data) {
                         const cellAddress = XLSX.utils.encode_cell({ r: 3 + rowIndex, c: col }) // 第5-7行
                         const cell = data.worksheet1[cellAddress]
                         let cellText = ''
-                        if (cell && cell.v !== null && cell.v !== '') {
+                        if (cell && cell.v !== null && cell.v !== '' && cell.v !== 'null') {
                             cellText = cell.v.toString()
+                        } else {
+                            cellText = '-'
                         }
                         if (rowIndex === 3) { // 第四行 "样品性状"在末尾追加“液体”
                             cellText += '液体';
@@ -1054,14 +1056,17 @@ export async function generateDocxDocument(data) {
                     const cellAddress = XLSX.utils.encode_cell({ r: 8 + i, c: col }) // 第9行 r=8
                     const cell = data.worksheet1[cellAddress]
                     let cellText = ''
-                    if (cell && cell.v !== null && cell.v !== '') {
+                    if (cell && cell.v !== null && cell.v !== '' && cell.v !== 'null') {
                         cellText = cell.v.toString()
+                    } else {
+                        cellText = '-'
                     }
                     cells.push(createFormattedCell0(cellText))
                 })
 
                 // 填入Excel最后一列数据
-                cells.push(createFormattedCell0(data.lastColumnValues[i] || ''))
+                const lastColValue = data.lastColumnValues[i]
+                cells.push(createFormattedCell0(lastColValue && lastColValue !== 'null' ? lastColValue : '-'))
 
                 tableRowsData.push(new TableRow({ height: { value: 567, rule: "exact" }, children: cells }))
             }
@@ -1152,5 +1157,3 @@ export async function generateDocxDocument(data) {
         throw new Error(`生成DOCX文档时出错: ${error.message}`)
     }
 }
-
-
