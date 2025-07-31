@@ -55,6 +55,14 @@ src/
 
 ## 开发环境配置
 
+1.复制示例配置文件：
+   ```bash
+   cp .env.example .env
+   ```
+2.编辑 .env 文件，填入实际的配置值
+
+3.确保 .env 文件不会被提交到版本控制
+
 ### 推荐IDE
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (禁用Vetur)
@@ -79,37 +87,6 @@ npm run dev
 
 ```sh
 npm run build
-```
-
-### 运行单元测试
-
-```sh
-npm run test:unit
-```
-
-### 运行端到端测试
-
-开发模式测试(快速):
-```sh
-npm run test:e2e:dev
-```
-
-生产构建测试(推荐CI使用):
-```sh
-npm run build
-npm run test:e2e
-```
-
-### 代码检查
-
-```sh
-npm run lint
-```
-
-### 代码格式化
-
-```sh
-npm run format
 ```
 
 ## 自定义配置
