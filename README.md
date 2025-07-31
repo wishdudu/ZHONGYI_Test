@@ -4,11 +4,12 @@
 
 ## 功能特性
 
-- Excel文件上传、处理和导出
-- Word文档生成和导出  
-- PDF文档解析
-- OCR文字识别功能
+- Excel文件上传、处理和导出 (支持.xlsx格式)
+- Word文档生成和导出 (基于docx库)
+- 百度OCR文字识别功能
 - 基于Element Plus的UI界面
+- 支持Excel模板导出
+- Word报告自动生成
 
 ## 演示视频
 
@@ -19,14 +20,18 @@
 ```
 src/
 ├── components/            # 可复用组件
-│   ├── BReportExporters/  # Excel导出相关
-│   ├── CReportExporters/  # Word导出相关
-│   └── UploadHandlers/    # 文件上传处理
+│   ├── BReportExporters/  # Excel导出相关组件
+│   ├── CReportExporters/  # Word导出相关组件
+│   └── UploadHandlers/    # 文件上传处理组件
+├── composables/           # 组合式函数
+├── stores/                # Pinia状态管理
 ├── utils/                 # 工具函数
 │   └── CReportExporters/  # 文档处理核心逻辑
 ├── views/                 # 页面视图
-│   ├── DetectTab.vue      # 检测功能页
-│   └── GenerateTab.vue    # 生成功能页
+│   ├── DetectTab.vue      # 检测功能页(OCR处理)
+│   ├── GenerateTab.vue    # 生成功能页(报告生成)
+│   ├── HomeView.vue       # 主页
+│   └── LoginView.vue      # 登录页
 ```
 
 ## 技术栈
@@ -49,27 +54,34 @@ src/
 - `docx`: Word文档生成
 - `exceljs`: Excel文件处理  
 - `xlsx`: Excel文件解析
-- `mammoth`: Word文档解析
-- `pdfjs-dist`: PDF文档解析
-- `tesseract.js`: OCR文字识别
+- `element-plus`: UI组件库
+- `pinia`: 状态管理
+- `axios`: HTTP请求
+- `vue-router`: 路由管理
 
 ## 开发环境配置
 
-1.复制示例配置文件：
+1. 复制示例配置文件：
    ```bash
    cp .env.example .env
    ```
-2.编辑 .env 文件，填入实际的配置值
+2. 编辑 .env 文件，填入实际的配置值：
+   ```env
+   VITE_API_BASE_URL=http://your-api-server
+   VITE_OCR_APP_ID=your-baidu-ocr-appid
+   VITE_OCR_API_KEY=your-baidu-ocr-apikey
+   VITE_OCR_SECRET_KEY=your-baidu-ocr-secretkey
+   ...
+   ```
 
-3.确保 .env 文件不会被提交到版本控制
+3. 确保 .env 文件不会被提交到版本控制
 
-### 推荐IDE
+### 开发注意事项
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (禁用Vetur)
-
-### TypeScript支持
-
-TypeScript默认无法处理`.vue`导入的类型信息，我们使用`vue-tsc`替代`tsc`进行类型检查。
+- Excel处理使用exceljs库，支持.xlsx格式
+- Word报告生成使用docx库
+- OCR功能对接百度OCR API，需要申请相关密钥
+- 组件命名遵循BReport(Excel相关)/CReport(Word相关)前缀规范
 
 ## 项目设置
 
